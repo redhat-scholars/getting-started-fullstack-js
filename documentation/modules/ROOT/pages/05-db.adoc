@@ -1,0 +1,67 @@
+= Add a Database
+include::_attributes.adoc[]
+
+You now need to add a database to your application so you can store those links somewhere. 
+
+In the last sections, you saw how to create your own container and deploy it and how to use s2i to build a container to be deployed. This time, we will use the application catalog and pick a template to be deployed.
+
+[#catalog]
+== Deploy from the catalog
+
+From the left navigation bar, click on "+Add". This will bring up a menu with various options to add you application to the OpenShift cluster.
+
+Choose "Database" to open up the developer catalog filtered out for database templates.
+From this view, select the MongoDB (Ephemeral) card. This will open up a side panel. On this panel, click on the blue "Instantiate Template" button.
+
+NOTE: This is an ephemeral template for MongoDB. When the pod restarts, all data is lost. This is ideal for development purposes but not so great for production. In the case of a production deployment, you will want to look into operator backed templates.
+
+On the next screen, fill in the fields with the following values:
+* Database Service Name: `mongo`
+* MongoDB Connection Username: `shorties`
+* MongoDB Connection Password: `shorties`
+* MongoDB Database Name: `urls`
+Then click on the blue "Create" button at the bottom.
+
+image:mongo-template.png[Instantiating a MongoDB template]
+
+This will create all the necessary components to deploy this database to your cluster and within a few seconds, you should see the application in the topology view with a blue ring indicating that it is running.
+
+image:mongo-running.png[MongoDB up and running in the topology view]
+
+[#env]
+== Use the UI to configure env variables
+Now that the database is started, it is time to configure the back-end to connect to it.
+
+In the last section, you used the CLI to configure the environment variables. This time, you can stay in the comfort of the UI.
+
+Click on the urlshortener deployment from the topology view. This will open up a side panel. In the Actions menu on the top right, select "Edit Deployment". 
+
+From this new screen, select the "Environment" tab and you should be back to the screen where you added the PORT earlier. 
+
+Click on "Add More" to add the following environment variables.
+
+* MONGO_SERVER: `mongo`
+* MONGO_VERSION: `3.6`
+
+For the user name and password, you can also use the secret that was created by the MongoDB template. 
+
+Click on "Add from Config Map or Secret", use the name `MONGO_USER`. In the "Select a resource" dropdown, pick the Secret named `mongo`. In the "Select a key" dropdown, pick `database-user`.
+
+Do the same for `MONGO_PASSWORD` which will map to the `database-password` key.
+
+Once you are done, click on the blue "Save" button at the bottom of the page.
+
+image:mongo-env-vars.png[MongoDB Environment Variables filled in]
+
+[#status]
+== Verify the application status
+
+Now that the database component has been added and the back-end is configured, it's time to test the application again. 
+
+If you open up the front-end and look at the About page, you should now see that the database is up and running.
+
+image:db-up.png[Database is up and running]
+
+You can now use the "Add New" page to create url shortcuts and you will see them in the "Current Shorties" page. All of this data is persisted if you refresh the page.
+
+If you click on the link icon though, you will get an error. This is because it's trying to contact a redirector service that hasn't been deployed yet. This will be added in the next section.

@@ -1,0 +1,58 @@
+= Link the front-end and back-end
+include::_attributes.adoc[]
+
+Now what the back-end is up and running, you can test out the About page again. If you open up the developer tools and look at the network requests going on, you will notice that some requests are made to `%SERVER_NAME%/$BASE_URL/health.
+
+That is because the front-end currently doesn't have a value for the $BASE_URL environment variables.
+
+To learn more about how the front-end container injects those variables in the JavaScript code, you can look at link:https://github.com/joellord/frontend-containers[this blog post].
+
+[#env]
+== Add the BASE_URL variable
+
+You can add environment variables by using the `oc` CLI tool, but before you do so, you will need to find the BASE_URL that the front-end needs to connect to.
+
+This will be the URL to your back-end. You can find this route by running the `get route` command.
+
+[.console-input]
+[source,bash]
+----
+oc get route urlshortener
+----
+
+[.console-output]
+[source,bash]
+----
+NAME           HOST/PORT                                                         PATH   SERVICES       PORT       TERMINATION   WILDCARD
+urlshortener   urlshortener-joelphy-dev.apps.sandbox.x8i5.p1.openshiftapps.com          urlshortener   8080-tcp                 None
+----
+
+If you only want to get the actual route, you can use `awk` to help you.
+
+[.console-input]
+[source,bash]
+----
+oc get route urlshortener | awk 'NR>1 {print $2}'
+----
+
+Now that you know how to get the URL, you can set it as an environment variable for the urlshortener-front deployment by using the `set env` command with `oc`. Give it the environment variable name and the value of that route. Don't forget to prepend it with http://.
+
+[.console-input]
+[source,bash]
+----
+oc set env deployment/urlshortener-front BASE_URL=http://$(oc get route urlshortener | awk 'NR>1 {print $2}')
+----
+
+[.console-output]
+[source,bash]
+----
+deployment.apps/urlshortener-front updated
+----
+
+[#test]
+== Test the application
+Now that you have configured the BASE_URL environment variable, you can go back to the URL Shortener aplication and check the About page again.
+
+image:server-up.png[Server up and running]
+
+You can see that the server is now up and running. The database and redirector services are still unreachable because you have not deployed them yet. Let fix that right now.

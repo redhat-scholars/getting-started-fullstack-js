@@ -2,28 +2,92 @@
 include::_attributes.adoc[]
 
 [#prerequisite]
-== Prerequisite CLI tools
+== Prerequisites
 
-include::https://raw.githubusercontent.com/redhat-developer-demos/rhd-tutorial-common/master/prerequisites-kubernetes.adoc[]
+The following CLI tools are required for running the exercises in this tutorial. 
+Please have them installed and configured before you get started with any of the tutorial chapters.
+
+[cols="4*^,4*.",options="header,+attributes"]
+|===
+|**Tool**|**macOS**|**Fedora**|**windows**
+
+| `Git`
+| https://git-scm.com/download/mac[Download]
+| https://git-scm.com/download/linux[Download]
+| https://git-scm.com/download/win[Download]
+
+| `Docker`
+| https://docs.docker.com/docker-for-mac/install[Docker for Mac]
+| `dnf install docker`
+| https://docs.docker.com/docker-for-windows/install[Docker for Windows]
 |===
 
-include::https://raw.githubusercontent.com/redhat-developer-demos/rhd-tutorial-common/master/optional-requisites.adoc[]
-|===
+[#devsandbox]
+== Create a Developer Sandbox Account
+The first step in order to deploy your application is to have somewhere to deploy it to. You could use any OpenShift cluster for this demo, but if you don't have access to one, you can use the link:https://developers.redhat.com/developer-sandbox[Developer Sandbox] to have access to a free OpenShift cluster for 14 days.
 
-[#minikube]
-== Setup Kubernetes
+To create your account, go to https://developers.redhat.com/developer-sandbox. From there, click on the red button that says "Launch your Developer Sandbox for Red Hat OpenShift" as shown in the following image.
 
-:profile: my_profile
+image::devsandbox-signup.png[Developer Sandbox Sign-up Page]
 
-include::https://raw.githubusercontent.com/redhat-developer-demos/rhd-tutorial-common/master/kubernetes-setup.adoc[]
+Use your existing Red Hat account or create a new one, then follow the instructions on the screen. You should then be redirected to the Developer Sandbox page again, but this time, you should see a button labeled "Start using your sandbox". Clicking on it will open up the OpenShift login screen where you will be able to login using the DevSandbox button, as seen below.
 
-And then you are ready for start using Kubernetes:
+image::devsandbox-login.png[Log in the Developer Sandbox]
 
-image::kubelogo.png[]
+This will open up your new OpenShift cluster. Feel free to take the tour or skip it for now and continue with this workshop.
 
-[#downloadtutorial]
-== Get tutorial sources
+[#oc]
+== Configure `oc`
+In order to interact with your OpenShift cluster, you will need the `oc` CLI tool. Thankfully, the OpenShift team made it easy for you to install it. In order to get the CLI tool for your operating system, click on the question mark icon at the top right of the OpenShift UI. From this dropdown, select "Command Line Tools". This will open up a page with the links required to install the 'oc' tool.
 
-:tutorial-url: https://github.com/redhat-developer-demos/rhd-tutorial-common.git
-:folder: my_folder
-include::https://raw.githubusercontent.com/redhat-developer-demos/rhd-tutorial-common/master/download-sources.adoc[]
+image:oc-install.png[Installation instructions for oc]
+
+Once the tool is installed, click on the link for "Copy Login Command" from the same "Command Line Tools" page. This will open up a new window with the authentication screen. Select DevSandbox, then click on the "Display Tokens" link on the next page.
+
+On this new page, you will find a command that starts with `oc login`. Copy this whole line with the --token and --server parameters and paste it in your terminal.
+
+[.console-input]
+[source,bash]
+----
+oc login --token=sha256~%TOKEN% --server=https://%SERVER%:6443
+----
+
+You should get a message back confirming that you are logged in the developer sandbox.
+
+[.console-output]
+[source,bash]
+----
+Logged into "https://%SERVER%:6443" as "%USERNAME%" using the token provided.
+
+You have access to the following projects and can switch between them with 'oc project <projectname>':
+
+  * %USERNAME%-code
+    %USERNAME%-dev
+    %USERNAME%-stage
+
+Using project "%USERNAME%-code".
+----
+
+[#locally]
+== Run the Application Locally
+The application that you will deploy to this OpenShift cluster is a URL shortener and redirection service. It has a React front-end to manage your links and connects to a Node.js API. That express server then connects to a Mongo database to store and retrieve the URLs.
+
+The is also another application called the "redirector" micro-service that will do a database lookup and redirect the traffic to the matching URL. This one is built in PHP.
+
+You will need a copy of the source code in order to build your container images. To do so, you can use `git clone`.
+
+[.console-input]
+[source,bash]
+----
+git clone https://github.com/joellord/urlshortener
+----
+
+Feel free to explore the source code of the application. If you want to run it locally, you can do so with `docker-compose` or `podman-compose`.
+
+[.console-input]
+[source,bash]
+----
+podman-compose up
+----
+
+This will start the application in development mode. To view the application, you can open up a browser and point it to http://localhost:3000.
