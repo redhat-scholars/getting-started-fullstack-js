@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Add a new micro-service :: Getting Started with OpenShift for Full Stack JavaScript</title>
+    <link rel="canonical" href="https://joellord.github.io/getting-started-fullstack-js/getting-started-fullstack-js/06-redirector.html">
+    <link rel="prev" href="05-db.html">
+    <meta name="generator" content="Antora 2.3.4">
+    <link rel="stylesheet" href="../_/css/site.css">
+<link rel="icon" href="../_/img/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://developers.redhat.com" target="_blank"><img
+          src="../_/img/header_logo.png" height="40px" alt="Red Hat Developer Program"></a>
+      <a class="navbar-item" href="https://joellord.github.io/getting-started-fullstack-js">Getting Started with OpenShift for Full Stack JavaScript</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Books</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">CheatSheets</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">CheatSheet A</a>
+            <a class="navbar-item" href="#">CheatSheet B</a>
+            <a class="navbar-item" href="#">CheatSheet C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Upcoming Events</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Event A</a>
+            <a class="navbar-item" href="#">Event B</a>
+            <a class="navbar-item" href="#">Event C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">More Tutorials</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Tutorial A</a>
+            <a class="navbar-item" href="#">Tutorial B</a>
+            <a class="navbar-item" href="#">Tutorial C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="getting-started-fullstack-js" data-version="master">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Getting Started with OpenShift for Full Stack JavaScript</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="01-setup.html">Setup</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="01-setup.html#prerequisite">Prerequisites</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="01-setup.html#devsandbox">Create a Developer Sandbox Account</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="01-setup.html#oc">Configure <code>oc</code></a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="01-setup.html#locally">Run Application Locally</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="02-front.html">Deploy the Front-End</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="02-front.html#build">Build Container</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="02-front.html#push">Push to a registry</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="02-front.html#newapp">Deploy the front-end</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="02-front.html#expose">Expose the application</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="02-front.html#status">Verify application status</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="03-back.html">Deploy the back-end</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="03-back.html#s2i">Use s2i</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="03-back.html#clienv">Configure environment variables</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="03-back.html#expose">Expose the application</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="03-back.html#health">Add a health check</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="04-env.html">Link the front-end and back-end</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="04-env.html#env">Add the BASE_URL variable</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="04-env.html#test">Test the application</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="05-db.html">Add a Database</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="05-db.html#catalog">Deploy from the catalog</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="05-db.html#env">Use the UI to configure env variables</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="05-db.html#frontenv">Edit front-end env variables</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="05-db.html#status">Verify the application status</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="06-redirector.html">Add a new micro-service</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#image">Add from existing image</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#env">Update Environment variables</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#status">Verify the status of the application</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Getting Started with OpenShift for Full Stack JavaScript</span>
+    <span class="version">master</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Getting Started with OpenShift for Full Stack JavaScript</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">master</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Getting Started with OpenShift for Full Stack JavaScript</a></li>
+    <li><a href="06-redirector.html">Add a new micro-service</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/joellord/getting-started-fullstack-js/edit/master/documentation/modules/ROOT/pages/06-redirector.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Add a new micro-service</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>You now have a front-end, a API and a database deployed and running on OpenShift. This application will need another micro service that shortened URLs will point to and will redirect to the matching longer URL that it finds in the database.</p>
+</div>
+<div class="paragraph">
+<p>One of the many benefits of deploying containerized micro-services is that they don&#8217;t need to be written in the same language. In this example, you will see how the process is to deploy a PHP server to this application.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="image"><a class="anchor" href="#image"></a>Add from existing image</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The image containing the service is already built for you. If you are curious, you can find the source code and Dockerfile in the <a href="https://github.com/joellord/urlshortener/tree/main/redirector">/redirector</a> folder of the source code.</p>
+</div>
+<div class="paragraph">
+<p>You can add this image by using the same commands as in the first section of this workshop or you can use the UI to do the same thing.</p>
+</div>
+<div class="paragraph">
+<p>To do so, click on the "Add+" link in the left navigation bar of the console.</p>
+</div>
+<div class="paragraph">
+<p>Next, choose the "Container Image" card. This will open up a new page titled "Deploy Image".</p>
+</div>
+<div class="paragraph">
+<p>In the field "Image name from external registry", enter <code>joellord/urlshortener-redirector</code>.</p>
+</div>
+<div class="paragraph">
+<p>Optionally, you can change the "Runtime Icon". Since this is a PHP application, I like to use the matching icon.</p>
+</div>
+<div class="paragraph">
+<p>For the "Application Name", remove the <code>redirector-app</code> to keep <code>urlshortener</code>. This will create a group in the topology view and you will be able to add the other services to it.</p>
+</div>
+<div class="paragraph">
+<p>Everything else can use the default values. Click on the blue "Create" button when you are ready.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/deploy-redirector.png" alt="Deploy the redirector image"></span></p>
+</div>
+<div class="paragraph">
+<p>The application should have been successfully deployed, but the route won&#8217;t work for now. Because this image has two different exposed ports, the created route was mapped to the wrong port. To change this, you can click on the urlshortner-redirector application in the topology view. In the "Resources" tab from the side panel, click on the route name.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/open-route.png" alt="Open the Route screen"></span></p>
+</div>
+<div class="paragraph">
+<p>From the "Actions" dropdown, choose "Edit Route". This will open up a YAML editor. Scroll down to find the "spec" object (they are in alphabetical order). Then look for the "port" property. In here, the targetPort has the value "80-tcp". Change that to "8080-tcp" and click "Save".</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/yaml-editor.png" alt="YAML editor"></span></p>
+</div>
+<div class="paragraph">
+<p>You can now go back to the Topology view and click on the Open URL link for the urlshortener-redirector application. This will show a page with a few errors.</p>
+</div>
+<div class="paragraph">
+<p>The PHP application doesn&#8217;t have environment variables yet so it can&#8217;t connect to the database for now.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="env"><a class="anchor" href="#env"></a>Update Environment Variables</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In order for the redirector service to connect to the Mongo database, it will need a few environment variables.</p>
+</div>
+<div class="paragraph">
+<p>Click on the application, and from the "Action" dropdown in the side panel, choose "Edit Deployment". Choose the "Environment" tab and fill in the following values:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>MONGO_SERVER: mongo</p>
+</li>
+<li>
+<p>MONGO_VERSION: 3.6</p>
+</li>
+<li>
+<p>MONGO_USER from mongo Secret: database-user</p>
+</li>
+<li>
+<p>MONGO_PASSWORD from mongo Secret: database-password</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/redirector-env-var.png" alt="Redirector service environment variables"></span></p>
+</div>
+<div class="paragraph">
+<p>Then click Save and this will restart the urlshortener-redirector application with these new environment variables.</p>
+</div>
+<div class="paragraph">
+<p>Now that the service is configured and ready to go, update the REDIRECTOR_URL environment variable from the front-end to point to this service.</p>
+</div>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc set env deployment/urlshortener-front REDIRECTOR_URL=http://$(oc get route urlshortener-redirector | awk 'NR&gt;1 {print $2}')</code></pre>
+</div>
+</div>
+<div class="listingblock console-output">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">deployment.apps/urlshortener-front updated</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This will restart the front-end pod with the new environment variables.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="status"><a class="anchor" href="#status"></a>Verify the status of the application</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Now that you have everything up and running, open up the application About page again. You should see all systems green.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/systems-go.png" alt="All systems go!"></span></p>
+</div>
+<div class="paragraph">
+<p>You can now use the application.</p>
+</div>
+<div class="paragraph">
+<p>Congratulations! You&#8217;ve deployed a full JavaScript application into an OpenShift cluster.</p>
+</div>
+<div class="paragraph">
+<p>Now that you have an application in the developer sandbox, you can try it various things such as scaling up some of the applications, grouping the applications in the topology view and looking at the logging inside the pods.</p>
+</div>
+<div class="paragraph">
+<p>To learn more about OpenShift, you can try out some of the smaller workshops at <a href="http://learn.openshift.com" class="bare">http://learn.openshift.com</a>.</p>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="05-db.html">Add a Database</a></span>
+</nav>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <a class="rhd-logo" href="https://developers.redhat.com" target="_blank"></div>
+</footer>
+<script src="../_/js/vendor/clipboard.js"></script>
+<script src="../_/js/site.js"></script>
+<script async src="../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

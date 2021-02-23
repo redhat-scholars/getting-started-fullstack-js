@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Deploy the Back-End :: Getting Started with OpenShift for Full Stack JavaScript</title>
+    <link rel="canonical" href="https://joellord.github.io/getting-started-fullstack-js/getting-started-fullstack-js/03-back.html">
+    <link rel="prev" href="02-front.html">
+    <link rel="next" href="04-env.html">
+    <meta name="generator" content="Antora 2.3.4">
+    <link rel="stylesheet" href="../_/css/site.css">
+<link rel="icon" href="../_/img/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://developers.redhat.com" target="_blank"><img
+          src="../_/img/header_logo.png" height="40px" alt="Red Hat Developer Program"></a>
+      <a class="navbar-item" href="https://joellord.github.io/getting-started-fullstack-js">Getting Started with OpenShift for Full Stack JavaScript</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Books</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">CheatSheets</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">CheatSheet A</a>
+            <a class="navbar-item" href="#">CheatSheet B</a>
+            <a class="navbar-item" href="#">CheatSheet C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Upcoming Events</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Event A</a>
+            <a class="navbar-item" href="#">Event B</a>
+            <a class="navbar-item" href="#">Event C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">More Tutorials</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Tutorial A</a>
+            <a class="navbar-item" href="#">Tutorial B</a>
+            <a class="navbar-item" href="#">Tutorial C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="getting-started-fullstack-js" data-version="master">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Getting Started with OpenShift for Full Stack JavaScript</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="01-setup.html">Setup</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="01-setup.html#prerequisite">Prerequisites</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="01-setup.html#devsandbox">Create a Developer Sandbox Account</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="01-setup.html#oc">Configure <code>oc</code></a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="01-setup.html#locally">Run Application Locally</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="02-front.html">Deploy the Front-End</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="02-front.html#build">Build Container</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="02-front.html#push">Push to a registry</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="02-front.html#newapp">Deploy the front-end</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="02-front.html#expose">Expose the application</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="02-front.html#status">Verify application status</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="03-back.html">Deploy the back-end</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#s2i">Use s2i</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#clienv">Configure environment variables</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#expose">Expose the application</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#health">Add a health check</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="04-env.html">Link the front-end and back-end</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="04-env.html#env">Add the BASE_URL variable</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="04-env.html#test">Test the application</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="05-db.html">Add a Database</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="05-db.html#catalog">Deploy from the catalog</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="05-db.html#env">Use the UI to configure env variables</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="05-db.html#frontenv">Edit front-end env variables</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="05-db.html#status">Verify the application status</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="06-redirector.html">Add a new micro-service</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="06-redirector.html#image">Add from existing image</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="06-redirector.html#env">Update Environment variables</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="06-redirector.html#status">Verify the status of the application</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Getting Started with OpenShift for Full Stack JavaScript</span>
+    <span class="version">master</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Getting Started with OpenShift for Full Stack JavaScript</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">master</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Getting Started with OpenShift for Full Stack JavaScript</a></li>
+    <li><a href="03-back.html">Deploy the back-end</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/joellord/getting-started-fullstack-js/edit/master/documentation/modules/ROOT/pages/03-back.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Deploy the Back-End</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>In the previous section, you created a Dockerfile, built a container and then pushed it to a shared registry so it could be used by OpenShift.</p>
+</div>
+<div class="paragraph">
+<p>When deploying applications to OpenShift, you can use some of the built-in tooling to make it much easier to deploy an application. In this section, you will deploy a Node.js back-end using s2i.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="s2i"><a class="anchor" href="#s2i"></a>Use s2i</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Source-to-image (<a href="https://github.com/openshift/source-to-image">s2i</a>) is a toolkit to build containers directly from the source code.</p>
+</div>
+<div class="paragraph">
+<p>To build the Node.js back-end from the Github source code, you can use the <code>oc new-app</code> command you&#8217;ve used previously. This time, you will specify a base image from which to build the container (centos7/nodejs-14-centos) and indicate the Github repository in which the source code is located. The --context-dir parameter is there to specify that the source code is located in the /back folder.</p>
+</div>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc new-app quay.io/centos7/nodejs-12-centos7~https://github.com/joellord/urlshortener --context-dir=back</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You should get a message back indicating that a Build has been started.</p>
+</div>
+<div class="listingblock console-output">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">--&gt; Found container image 4c29251 (4 days old) from quay.io for "quay.io/centos7/nodejs-12-centos7"
+
+    Node.js 12
+    ----------
+    Node.js 12 available as container is a base platform for building and running various Node.js 12 applications and frameworks. Node.js is a platform built on Chrome's JavaScript runtime for easily building fast, scalable network applications. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices.
+
+    Tags: builder, nodejs, nodejs12
+
+    * An image stream tag will be created as "nodejs-12-centos7:latest" that will track the source image
+    * A source build using source code from https://github.com/joellord/urlshortener will be created
+      * The resulting image will be pushed to image stream tag "urlshortener:latest"
+      * Every time "nodejs-12-centos7:latest" changes a new build will be triggered
+
+--&gt; Creating resources ...
+    imagestream.image.openshift.io "nodejs-12-centos7" created
+    imagestream.image.openshift.io "urlshortener" created
+    buildconfig.build.openshift.io "urlshortener" created
+    deployment.apps "urlshortener" created
+    service "urlshortener" created
+--&gt; Success
+    Build scheduled, use 'oc logs -f bc/urlshortener' to track its progress.
+    Application is not exposed. You can expose services to the outside world by executing one or more of the commands below:
+     'oc expose svc/urlshortener'
+    Run 'oc status' to view your app.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you head to the topology view, you will see that the application is there with a white ring. This is because the application is currently being built. The source code is being cloned and the image is built directly on the OpenShift cluster.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/building.png" alt="Application building"></span></p>
+</div>
+<div class="paragraph">
+<p>In a few minutes, you should see the ring turn blue, indicating that the image has been deployed.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="clienv"><a class="anchor" href="#clienv"></a>Configure environment variables</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Node.js application was running on port 3001 in the development environment, which was set as an environment variable. In the production server, you might want to change some of those environment variables. In this case, you will change the port on which the application is running to 8080.</p>
+</div>
+<div class="paragraph">
+<p>If you click on the urlshortener circle, this will open up a side panel. In this panel, find the Actions menu in the top right and select "Edit Deployment".</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/edit-deployment.png" alt="Edit Deployment"></span></p>
+</div>
+<div class="paragraph">
+<p>This will open up a YAML editor where you can see the description of the urlshortener deployment.</p>
+</div>
+<div class="paragraph">
+<p>In the navigation bar, select Environment. This will open up the Environment variables editor. Add a single value with the name PORT and the value 8080.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/env-var-edit.png" alt="Edit Environment Variables"></span></p>
+</div>
+<div class="paragraph">
+<p>Then click save and go back to the topology view.</p>
+</div>
+<div class="paragraph">
+<p>If you go back fast enough, you might see a double ring around the urlshortener application.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/double-ring.png" alt="Double ring around urlshortener"></span></p>
+</div>
+<div class="paragraph">
+<p>This is because OpenShift is currently deploying a new version of the application with the new environment variables. Once it&#8217;s up and running, it will take the old one down. This ensures that there is zero down-time when you update your applications.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="expose"><a class="anchor" href="#expose"></a>Expose the application</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Now that the application has been deployed, you can expose it using the same command as you used for the front-end.</p>
+</div>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc expose svc/urlshortener</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>No need to specify the port in this case because s2i assumed that the application would be running on port 8080.</p>
+</div>
+<div class="paragraph">
+<p>If you click on the Open URL link, you should see a response back from the server.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">{ "msg": "Hello" }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can also try the /health route which should return the server and database status.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">{ "server": true, "database": false }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can see the code for this /health route in the express server <a href="https://github.com/joellord/urlshortener/blob/main/back/routes/index.js#L15-L20">here</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="health"><a class="anchor" href="#health"></a>Add a health check</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>OpenShift can periodically check your pod to see if it is still running. This is called a health check. In the side panel when you clicked on the urlshortener deployment, you might have noticed a message recommending to add one. Go ahead and click on "Add Health Checks".</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/add-health-check.png" alt="Add Health Checks"></span></p>
+</div>
+<div class="paragraph">
+<p>From this next screen, you will add a Liveness Probe which will monitor your application by doing periodic calls to the specified route. As long as it returns a 200  HTTP code, OpenShift will assume that the application is still running.</p>
+</div>
+<div class="paragraph">
+<p>To add the health check, click on "Add Liveness Probe". Change the Path to "/health" and keep all the other default values.</p>
+</div>
+<div class="paragraph">
+<p>Click on the checkmark at the bottom of the dashed area and then click on the blue "Add" button to save this health check.</p>
+</div>
+<div class="paragraph">
+<p>If you want to validate that this is working, you can use the "Resources" tab from the deployment side panel and click on "View logs" next to the pod name. This will show you the pod logs and you should see the request to /health every 10 seconds.</p>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="02-front.html">Deploy the Front-End</a></span>
+  <span class="next"><a href="04-env.html">Link the front-end and back-end</a></span>
+</nav>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <a class="rhd-logo" href="https://developers.redhat.com" target="_blank"></div>
+</footer>
+<script src="../_/js/vendor/clipboard.js"></script>
+<script src="../_/js/site.js"></script>
+<script async src="../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

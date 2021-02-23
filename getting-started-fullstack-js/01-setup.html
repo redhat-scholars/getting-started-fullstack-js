@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Setup :: Getting Started with OpenShift for Full Stack JavaScript</title>
+    <link rel="canonical" href="https://joellord.github.io/getting-started-fullstack-js/getting-started-fullstack-js/01-setup.html">
+    <link rel="prev" href="index.html">
+    <link rel="next" href="02-front.html">
+    <meta name="generator" content="Antora 2.3.4">
+    <link rel="stylesheet" href="../_/css/site.css">
+<link rel="icon" href="../_/img/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://developers.redhat.com" target="_blank"><img
+          src="../_/img/header_logo.png" height="40px" alt="Red Hat Developer Program"></a>
+      <a class="navbar-item" href="https://joellord.github.io/getting-started-fullstack-js">Getting Started with OpenShift for Full Stack JavaScript</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Books</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">CheatSheets</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">CheatSheet A</a>
+            <a class="navbar-item" href="#">CheatSheet B</a>
+            <a class="navbar-item" href="#">CheatSheet C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Upcoming Events</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Event A</a>
+            <a class="navbar-item" href="#">Event B</a>
+            <a class="navbar-item" href="#">Event C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">More Tutorials</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Tutorial A</a>
+            <a class="navbar-item" href="#">Tutorial B</a>
+            <a class="navbar-item" href="#">Tutorial C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="getting-started-fullstack-js" data-version="master">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Getting Started with OpenShift for Full Stack JavaScript</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="01-setup.html">Setup</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#prerequisite">Prerequisites</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#devsandbox">Create a Developer Sandbox Account</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#oc">Configure <code>oc</code></a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#locally">Run Application Locally</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="02-front.html">Deploy the Front-End</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="02-front.html#build">Build Container</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="02-front.html#push">Push to a registry</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="02-front.html#newapp">Deploy the front-end</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="02-front.html#expose">Expose the application</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="02-front.html#status">Verify application status</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="03-back.html">Deploy the back-end</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="03-back.html#s2i">Use s2i</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="03-back.html#clienv">Configure environment variables</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="03-back.html#expose">Expose the application</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="03-back.html#health">Add a health check</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="04-env.html">Link the front-end and back-end</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="04-env.html#env">Add the BASE_URL variable</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="04-env.html#test">Test the application</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="05-db.html">Add a Database</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="05-db.html#catalog">Deploy from the catalog</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="05-db.html#env">Use the UI to configure env variables</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="05-db.html#frontenv">Edit front-end env variables</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="05-db.html#status">Verify the application status</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="06-redirector.html">Add a new micro-service</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="06-redirector.html#image">Add from existing image</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="06-redirector.html#env">Update Environment variables</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="06-redirector.html#status">Verify the status of the application</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Getting Started with OpenShift for Full Stack JavaScript</span>
+    <span class="version">master</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Getting Started with OpenShift for Full Stack JavaScript</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">master</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Getting Started with OpenShift for Full Stack JavaScript</a></li>
+    <li><a href="01-setup.html">Setup</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/joellord/getting-started-fullstack-js/edit/master/documentation/modules/ROOT/pages/01-setup.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Setup</h1>
+<div class="sect1">
+<h2 id="prerequisite"><a class="anchor" href="#prerequisite"></a>Prerequisites</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following CLI tools are required for running the exercises in this tutorial.
+Please have them installed and configured before you get started with any of the tutorial chapters.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-top"><strong>Tool</strong></th>
+<th class="tableblock halign-center valign-top"><strong>macOS</strong></th>
+<th class="tableblock halign-center valign-top"><strong>Fedora</strong></th>
+<th class="tableblock halign-center valign-top"><strong>windows</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>Git</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="https://git-scm.com/download/mac">Download</a></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="https://git-scm.com/download/linux">Download</a></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="https://git-scm.com/download/win">Download</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>Docker</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="https://docs.docker.com/docker-for-mac/install">Docker for Mac</a></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>dnf install docker</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="https://docs.docker.com/docker-for-windows/install">Docker for Windows</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="devsandbox"><a class="anchor" href="#devsandbox"></a>Create a Developer Sandbox Account</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The first step in order to deploy your application is to have somewhere to deploy it to. You could use any OpenShift cluster for this demo, but if you don&#8217;t have access to one, you can use the <a href="https://developers.redhat.com/developer-sandbox">Developer Sandbox</a> to have access to a free OpenShift cluster for 14 days.</p>
+</div>
+<div class="paragraph">
+<p>To create your account, go to <a href="https://developers.redhat.com/developer-sandbox" class="bare">https://developers.redhat.com/developer-sandbox</a>. From there, click on the red button that says "Launch your Developer Sandbox for Red Hat OpenShift" as shown in the following image.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/devsandbox-signup.png" alt="Developer Sandbox Sign-up Page">
+</div>
+</div>
+<div class="paragraph">
+<p>Use your existing Red Hat account or create a new one, then follow the instructions on the screen. You should then be redirected to the Developer Sandbox page again, but this time, you should see a button labeled "Start using your sandbox". Clicking on it will open up the OpenShift login screen where you will be able to login using the DevSandbox button, as seen below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/devsandbox-login.png" alt="Log in the Developer Sandbox">
+</div>
+</div>
+<div class="paragraph">
+<p>This will open up your new OpenShift cluster. Feel free to take the tour or skip it for now and continue with this workshop.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="oc"><a class="anchor" href="#oc"></a>Configure <code>oc</code></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In order to interact with your OpenShift cluster, you will need the <code>oc</code> CLI tool. Thankfully, the OpenShift team made it easy for you to install it. In order to get the CLI tool for your operating system, click on the question mark icon at the top right of the OpenShift UI. From this dropdown, select "Command Line Tools". This will open up a page with the links required to install the 'oc' tool.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/oc-install.png" alt="Installation instructions for oc"></span></p>
+</div>
+<div class="paragraph">
+<p>Once the tool is installed, click on the link for "Copy Login Command" from the same "Command Line Tools" page. This will open up a new window with the authentication screen. Select DevSandbox, then click on the "Display Tokens" link on the next page.</p>
+</div>
+<div class="paragraph">
+<p>On this new page, you will find a command that starts with <code>oc login</code>. Copy this whole line with the --token and --server parameters and paste it in your terminal.</p>
+</div>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc login --token=sha256~%TOKEN% --server=https://%SERVER%:6443</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You should get a message back confirming that you are logged in the developer sandbox.</p>
+</div>
+<div class="listingblock console-output">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">Logged into "https://%SERVER%:6443" as "%USERNAME%" using the token provided.
+
+You have access to the following projects and can switch between them with 'oc project &lt;projectname&gt;':
+
+  * %USERNAME%-code
+    %USERNAME%-dev
+    %USERNAME%-stage
+
+Using project "%USERNAME%-code".</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="locally"><a class="anchor" href="#locally"></a>Run the Application Locally</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The application that you will deploy to this OpenShift cluster is a URL shortener and redirection service. It has a React front-end to manage your links and connects to a Node.js API. That express server then connects to a Mongo database to store and retrieve the URLs.</p>
+</div>
+<div class="paragraph">
+<p>The is also another application called the "redirector" micro-service that will do a database lookup and redirect the traffic to the matching URL. This one is built in PHP.</p>
+</div>
+<div class="paragraph">
+<p>You will need a copy of the source code in order to build your container images. To do so, you can use <code>git clone</code>.</p>
+</div>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git clone https://github.com/joellord/urlshortener</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Feel free to explore the source code of the application. If you want to run it locally, you can do so with <code>docker-compose</code> or <code>podman-compose</code>.</p>
+</div>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">podman-compose up</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This will start the application in development mode. To view the application, you can open up a browser and point it to <a href="http://localhost:3000" class="bare">http://localhost:3000</a>.</p>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="index.html">Getting Started with OpenShift for Full Stack JavaScript</a></span>
+  <span class="next"><a href="02-front.html">Deploy the Front-End</a></span>
+</nav>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <a class="rhd-logo" href="https://developers.redhat.com" target="_blank"></div>
+</footer>
+<script src="../_/js/vendor/clipboard.js"></script>
+<script src="../_/js/site.js"></script>
+<script async src="../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

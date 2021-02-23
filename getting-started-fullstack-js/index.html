@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Welcome to OpenShift :: Getting Started with OpenShift for Full Stack JavaScript</title>
+    <link rel="canonical" href="https://joellord.github.io/getting-started-fullstack-js/getting-started-fullstack-js/index.html">
+    <link rel="next" href="01-setup.html">
+    <meta name="generator" content="Antora 2.3.4">
+    <link rel="stylesheet" href="../_/css/site.css">
+<link rel="icon" href="../_/img/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://developers.redhat.com" target="_blank"><img
+          src="../_/img/header_logo.png" height="40px" alt="Red Hat Developer Program"></a>
+      <a class="navbar-item" href="https://joellord.github.io/getting-started-fullstack-js">Getting Started with OpenShift for Full Stack JavaScript</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Books</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">CheatSheets</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">CheatSheet A</a>
+            <a class="navbar-item" href="#">CheatSheet B</a>
+            <a class="navbar-item" href="#">CheatSheet C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Upcoming Events</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Event A</a>
+            <a class="navbar-item" href="#">Event B</a>
+            <a class="navbar-item" href="#">Event C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">More Tutorials</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Tutorial A</a>
+            <a class="navbar-item" href="#">Tutorial B</a>
+            <a class="navbar-item" href="#">Tutorial C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="getting-started-fullstack-js" data-version="master">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Getting Started with OpenShift for Full Stack JavaScript</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="01-setup.html">Setup</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="01-setup.html#prerequisite">Prerequisites</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="01-setup.html#devsandbox">Create a Developer Sandbox Account</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="01-setup.html#oc">Configure <code>oc</code></a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="01-setup.html#locally">Run Application Locally</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="02-front.html">Deploy the Front-End</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="02-front.html#build">Build Container</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="02-front.html#push">Push to a registry</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="02-front.html#newapp">Deploy the front-end</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="02-front.html#expose">Expose the application</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="02-front.html#status">Verify application status</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="03-back.html">Deploy the back-end</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="03-back.html#s2i">Use s2i</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="03-back.html#clienv">Configure environment variables</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="03-back.html#expose">Expose the application</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="03-back.html#health">Add a health check</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="04-env.html">Link the front-end and back-end</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="04-env.html#env">Add the BASE_URL variable</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="04-env.html#test">Test the application</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="05-db.html">Add a Database</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="05-db.html#catalog">Deploy from the catalog</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="05-db.html#env">Use the UI to configure env variables</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="05-db.html#frontenv">Edit front-end env variables</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="05-db.html#status">Verify the application status</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="06-redirector.html">Add a new micro-service</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="06-redirector.html#image">Add from existing image</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="06-redirector.html#env">Update Environment variables</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="06-redirector.html#status">Verify the status of the application</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Getting Started with OpenShift for Full Stack JavaScript</span>
+    <span class="version">master</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Getting Started with OpenShift for Full Stack JavaScript</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">master</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="index.html" class="home-link is-current"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Getting Started with OpenShift for Full Stack JavaScript</a></li>
+    <li><a href="index.html">Welcome to OpenShift</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/joellord/getting-started-fullstack-js/edit/master/documentation/modules/ROOT/pages/index.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Welcome to OpenShift</h1>
+<div class="sect1 text-center strong">
+<h2>Publishing Full Stack JavaScript Applications to OpenShift Lab</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>OpenShift is a Kubernetes distribution by Red Hat that aims at making it easy to deploy applications.</p>
+</div>
+<div class="paragraph">
+<p>In this hands-on lab, you will learn how to deploy a full stack JavaScript application in an OpenShift cluster.</p>
+</div>
+<div class="paragraph">
+<p>Starting from a source code, you will take an application that runs locally and deploy it in the <a href="https://developers.redhat.com/developer-sandbox">Developer Sandbox</a>. A full video of this deployment can be found on the <a href="https://developers.redhat.com/devnation/tech-talks/dev-sandbox">DevNation Tech Talk website</a>.</p>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="next"><a href="01-setup.html">Setup</a></span>
+</nav>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <a class="rhd-logo" href="https://developers.redhat.com" target="_blank"></div>
+</footer>
+<script src="../_/js/vendor/clipboard.js"></script>
+<script src="../_/js/site.js"></script>
+<script async src="../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
