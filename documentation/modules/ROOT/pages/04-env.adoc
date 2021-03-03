@@ -1,7 +1,7 @@
 = Link the front-end and back-end
 include::_attributes.adoc[]
 
-Now what the back-end is up and running, you can test out the About page again. If you open up the developer tools and look at the network requests going on, you will notice that some requests are made to `%SERVER_NAME%/$BASE_URL/health.
+Now what the back-end is up and running, you can test out the About page again. If you open up the developer tools and look at the network requests, you can notice that some requests are made to `%SERVER_NAME%/$BASE_URL/health.
 
 That is because the front-end currently doesn't have a value for the $BASE_URL environment variables.
 
@@ -10,9 +10,9 @@ To learn more about how the front-end container injects those variables in the J
 [#env]
 == Add the BASE_URL variable
 
-You can add environment variables by using the `oc` CLI tool, but before you do so, you will need to find the BASE_URL that the front-end needs to connect to.
+You can add environment variables using the `oc` CLI tool, but before you do so, you need to find the BASE_URL that the front-end needs to connect to.
 
-This will be the URL to your back-end. You can find this route by running the `get route` command.
+This base URL is the route to your back-end. You can find this route by running the `get route` command.
 
 [.console-input]
 [source,bash]
@@ -51,7 +51,7 @@ deployment.apps/urlshortener-front updated
 
 [#test]
 == Test the application
-Now that you have configured the BASE_URL environment variable, you can go back to the URL Shortener aplication and check the About page again.
+Now that you have configured the BASE_URL environment variable, you can go back to the URL Shortener application and check the About page again.
 
 image:server-up.png[Server up and running]
 

@@ -1,4 +1,0 @@
-TODO: 
-* Scaling
-* Application Grouping
-* Logging & Monitoring
