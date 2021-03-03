@@ -214,10 +214,10 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>You now have a front-end, a API and a database deployed and running on OpenShift. This application will need another micro service that shortened URLs will point to and will redirect to the matching longer URL that it finds in the database.</p>
+<p>You now have a front-end, an API and a database deployed and running on OpenShift. This application needs another micro-service that short URLs will point to and will redirect to the matching longer URL found in the database.</p>
 </div>
 <div class="paragraph">
-<p>One of the many benefits of deploying containerized micro-services is that they don&#8217;t need to be written in the same language. In this example, you will see how the process is to deploy a PHP server to this application.</p>
+<p>One of the many benefits of deploying containerized micro-services is that they don&#8217;t need to be written in the same language. In this example, you will see how to add a PHP server to this application.</p>
 </div>
 </div>
 </div>
@@ -228,22 +228,22 @@
 <p>The image containing the service is already built for you. If you are curious, you can find the source code and Dockerfile in the <a href="https://github.com/joellord/urlshortener/tree/main/redirector">/redirector</a> folder of the source code.</p>
 </div>
 <div class="paragraph">
-<p>You can add this image by using the same commands as in the first section of this workshop or you can use the UI to do the same thing.</p>
+<p>You can add this image by using the same commands as in the first section of this workshop, or you can use the UI to do the same thing.</p>
 </div>
 <div class="paragraph">
-<p>To do so, click on the "Add+" link in the left navigation bar of the console.</p>
+<p>To do so, click on the <em>Add+</em> link in the left navigation bar of the console.</p>
 </div>
 <div class="paragraph">
-<p>Next, choose the "Container Image" card. This will open up a new page titled "Deploy Image".</p>
+<p>Next, choose the <em>Container Image</em> card. A new page titled <em>Deploy Image</em> will be displayed.</p>
 </div>
 <div class="paragraph">
-<p>In the field "Image name from external registry", enter <code>joellord/urlshortener-redirector</code>.</p>
+<p>In the field <em>Image name from external registry</em>, enter <code>joellord/urlshortener-redirector</code>.</p>
 </div>
 <div class="paragraph">
-<p>Optionally, you can change the "Runtime Icon". Since this is a PHP application, I like to use the matching icon.</p>
+<p>Optionally, you can change the <em>Runtime Icon</em>. Since this is a PHP application, I like to use the matching icon.</p>
 </div>
 <div class="paragraph">
-<p>For the "Application Name", remove the <code>redirector-app</code> to keep <code>urlshortener</code>. This will create a group in the topology view and you will be able to add the other services to it.</p>
+<p>For the <em>Application Name</em>, remove the <code>redirector-app</code> to keep <code>urlshortener</code>. This will create a group in the topology view and you will be able to add the other services to it.</p>
 </div>
 <div class="paragraph">
 <p>Everything else can use the default values. Click on the blue "Create" button when you are ready.</p>
@@ -258,7 +258,7 @@
 <p><span class="image"><img src="_images/open-route.png" alt="Open the Route screen"></span></p>
 </div>
 <div class="paragraph">
-<p>From the "Actions" dropdown, choose "Edit Route". This will open up a YAML editor. Scroll down to find the "spec" object (they are in alphabetical order). Then look for the "port" property. In here, the targetPort has the value "80-tcp". Change that to "8080-tcp" and click "Save".</p>
+<p>From the <em>Actions</em> dropdown, choose <em>Edit Route</em>. This opens up a YAML editor. Scroll down to find the "spec" object (they are in alphabetical order). Then look for the "port" property. In here, the targetPort has the value "80-tcp". Change that to "8080-tcp" and click <em>Save</em>.</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="_images/yaml-editor.png" alt="YAML editor"></span></p>
@@ -267,7 +267,7 @@
 <p>You can now go back to the Topology view and click on the Open URL link for the urlshortener-redirector application. This will show a page with a few errors.</p>
 </div>
 <div class="paragraph">
-<p>The PHP application doesn&#8217;t have environment variables yet so it can&#8217;t connect to the database for now.</p>
+<p>The PHP application doesn&#8217;t have environment variables yet, so it can&#8217;t connect to the database for now.</p>
 </div>
 </div>
 </div>
@@ -275,10 +275,10 @@
 <h2 id="env"><a class="anchor" href="#env"></a>Update Environment Variables</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>In order for the redirector service to connect to the Mongo database, it will need a few environment variables.</p>
+<p>For the redirector service to connect to the Mongo database, it needs a few environment variables.</p>
 </div>
 <div class="paragraph">
-<p>Click on the application, and from the "Action" dropdown in the side panel, choose "Edit Deployment". Choose the "Environment" tab and fill in the following values:</p>
+<p>Click on the application, and from the <em>Action</em> dropdown in the side panel, choose <em>Edit Deployment</em>. Choose the <em>Environment</em> tab and fill in the following values:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -300,7 +300,7 @@
 <p><span class="image"><img src="_images/redirector-env-var.png" alt="Redirector service environment variables"></span></p>
 </div>
 <div class="paragraph">
-<p>Then click Save and this will restart the urlshortener-redirector application with these new environment variables.</p>
+<p>Then click Save, and the urlshortener-redirector application will restart with these new environment variables.</p>
 </div>
 <div class="paragraph">
 <p>Now that the service is configured and ready to go, update the REDIRECTOR_URL environment variable from the front-end to point to this service.</p>
@@ -316,7 +316,7 @@
 </div>
 </div>
 <div class="paragraph">
-<p>This will restart the front-end pod with the new environment variables.</p>
+<p>The front-end pod will restart with the new environment variables.</p>
 </div>
 </div>
 </div>
@@ -324,7 +324,7 @@
 <h2 id="status"><a class="anchor" href="#status"></a>Verify the status of the application</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Now that you have everything up and running, open up the application About page again. You should see all systems green.</p>
+<p>Now that you have everything up and running, open up the application <em>About</em> page again. You should see all systems green.</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="_images/systems-go.png" alt="All systems go!"></span></p>
@@ -336,7 +336,7 @@
 <p>Congratulations! You&#8217;ve deployed a full JavaScript application into an OpenShift cluster.</p>
 </div>
 <div class="paragraph">
-<p>Now that you have an application in the developer sandbox, you can try it various things such as scaling up some of the applications, grouping the applications in the topology view and looking at the logging inside the pods.</p>
+<p>Now that you have an application in the developer sandbox, you can try various things such as scaling up some of the applications, grouping the applications in the topology view and looking at the logs inside the pods.</p>
 </div>
 <div class="paragraph">
 <p>To learn more about OpenShift, you can try out some of the smaller workshops at <a href="http://learn.openshift.com" class="bare">http://learn.openshift.com</a>.</p>

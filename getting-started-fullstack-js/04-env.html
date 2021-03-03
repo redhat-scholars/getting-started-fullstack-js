@@ -215,7 +215,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Now what the back-end is up and running, you can test out the About page again. If you open up the developer tools and look at the network requests going on, you will notice that some requests are made to `%SERVER_NAME%/$BASE_URL/health.</p>
+<p>Now what the back-end is up and running, you can test out the About page again. If you open up the developer tools and look at the network requests, you can notice that some requests are made to `%SERVER_NAME%/$BASE_URL/health.</p>
 </div>
 <div class="paragraph">
 <p>That is because the front-end currently doesn&#8217;t have a value for the $BASE_URL environment variables.</p>
@@ -229,10 +229,10 @@
 <h2 id="env"><a class="anchor" href="#env"></a>Add the BASE_URL variable</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can add environment variables by using the <code>oc</code> CLI tool, but before you do so, you will need to find the BASE_URL that the front-end needs to connect to.</p>
+<p>You can add environment variables using the <code>oc</code> CLI tool, but before you do so, you need to find the BASE_URL that the front-end needs to connect to.</p>
 </div>
 <div class="paragraph">
-<p>This will be the URL to your back-end. You can find this route by running the <code>get route</code> command.</p>
+<p>This base URL is the route to your back-end. You can find this route by running the <code>get route</code> command.</p>
 </div>
 <div class="listingblock console-input">
 <div class="content">
@@ -272,7 +272,7 @@ urlshortener   urlshortener-joelphy-dev.apps.sandbox.x8i5.p1.openshiftapps.com  
 <h2 id="test"><a class="anchor" href="#test"></a>Test the application</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Now that you have configured the BASE_URL environment variable, you can go back to the URL Shortener aplication and check the About page again.</p>
+<p>Now that you have configured the BASE_URL environment variable, you can go back to the URL Shortener application and check the About page again.</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="_images/server-up.png" alt="Server up and running"></span></p>

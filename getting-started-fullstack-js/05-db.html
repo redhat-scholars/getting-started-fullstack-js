@@ -218,19 +218,19 @@
 <p>You now need to add a database to your application so you can store those links somewhere.</p>
 </div>
 <div class="paragraph">
-<p>In the last sections, you saw how to create your own container and deploy it and how to use s2i to build a container to be deployed. This time, we will use the application catalog and pick a template to be deployed.</p>
+<p>In the last sections, you saw how to create your container and deploy it and use s2i to build a container to be deployed. This time, we will use the application catalogue and pick a template to deploy on the cluster.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="catalog"><a class="anchor" href="#catalog"></a>Deploy from the catalog</h2>
+<h2 id="catalog"><a class="anchor" href="#catalog"></a>Deploy from the catalogue</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>From the left navigation bar, click on "+Add". This will bring up a menu with various options to add you application to the OpenShift cluster.</p>
+<p>From the left navigation bar, click on <em>+Add</em>. This brings up a menu with various options to add your application to the OpenShift cluster.</p>
 </div>
 <div class="paragraph">
-<p>Choose "Database" to open up the developer catalog filtered out for database templates.
-From this view, select the MongoDB (Ephemeral) card. This will open up a side panel. On this panel, click on the blue "Instantiate Template" button.</p>
+<p>Choose "Database" to open up the developer catalogue filtered out for database templates.
+From this view, select the MongoDB (Ephemeral) card. A side panel should open. On this panel, click on the blue <em>Instantiate Template</em> button.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -239,7 +239,7 @@ From this view, select the MongoDB (Ephemeral) card. This will open up a side pa
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-This is an ephemeral template for MongoDB. When the pod restarts, all data is lost. This is ideal for development purposes but not so great for production. In the case of a production deployment, you will want to look into operator backed templates.
+This is an ephemeral template for MongoDB. When the pod restarts, all data is lost. This is ideal for development purposes but not so great for production. In the case of a production deployment, you will want to look into operator-backed templates.
 </td>
 </tr>
 </table>
@@ -256,7 +256,7 @@ Then click on the blue "Create" button at the bottom.</p>
 <p><span class="image"><img src="_images/mongo-template.png" alt="Instantiating a MongoDB template"></span></p>
 </div>
 <div class="paragraph">
-<p>This will create all the necessary components to deploy this database to your cluster and within a few seconds, you should see the application in the topology view with a blue ring indicating that it is running.</p>
+<p>OpenShift is now creating all the necessary components to deploy this database to your cluster. In a few seconds, you should see the application in the topology view with a blue ring indicating that it is running.</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="_images/mongo-running.png" alt="MongoDB up and running in the topology view"></span></p>
@@ -267,16 +267,16 @@ Then click on the blue "Create" button at the bottom.</p>
 <h2 id="env"><a class="anchor" href="#env"></a>Use the UI to configure env variables</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Now that the database is started, it is time to configure the back-end to connect to it.</p>
+<p>Now that the database started, it is time to configure the back-end to connect to it.</p>
 </div>
 <div class="paragraph">
 <p>In the last section, you used the CLI to configure the environment variables. This time, you can stay in the comfort of the UI.</p>
 </div>
 <div class="paragraph">
-<p>Click on the urlshortener deployment from the topology view. This will open up a side panel. In the Actions menu on the top right, select "Edit Deployment".</p>
+<p>Click on the urlshortener deployment from the topology view. This will open up a side panel. In the Actions menu on the top right, select <em>Edit Deployment</em>.</p>
 </div>
 <div class="paragraph">
-<p>From this new screen, select the "Environment" tab and you should be back to the screen where you added the PORT earlier.</p>
+<p>From this new screen, select the <em>Environment</em> tab, and you should be back to the screen where you added the PORT earlier.</p>
 </div>
 <div class="paragraph">
 <p>Click on "Add More" to add the following environment variables.</p>
@@ -292,13 +292,13 @@ Then click on the blue "Create" button at the bottom.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>For the user name and password, you can also use the secret that was created by the MongoDB template.</p>
+<p>For the user name and password, you can also use the Secret created by the MongoDB template.</p>
 </div>
 <div class="paragraph">
-<p>Click on "Add from Config Map or Secret", use the name <code>MONGO_USER</code>. In the "Select a resource" dropdown, pick the Secret named <code>mongo</code>. In the "Select a key" dropdown, pick <code>database-user</code>.</p>
+<p>Click on <em>Add from Config Map or Secret</em>, and use the name <code>MONGO_USER</code>. In the <em>Select a resource</em> dropdown, pick the Secret named <code>mongo</code>. In the <em>Select a key</em> dropdown, pick <code>database-user</code>.</p>
 </div>
 <div class="paragraph">
-<p>Do the same for <code>MONGO_PASSWORD</code> which will map to the <code>database-password</code> key.</p>
+<p>Do the same for <code>MONGO_PASSWORD</code>, which maps to the <code>database-password</code> key.</p>
 </div>
 <div class="paragraph">
 <p>Once you are done, click on the blue "Save" button at the bottom of the page.</p>
@@ -321,10 +321,10 @@ Then click on the blue "Create" button at the bottom.</p>
 <p><span class="image"><img src="_images/db-up.png" alt="Database is up and running"></span></p>
 </div>
 <div class="paragraph">
-<p>You can now use the "Add New" page to create url shortcuts and you will see them in the "Current Shorties" page. All of this data is persisted if you refresh the page.</p>
+<p>You can now use the <em>Add New</em> page to create URL shortcuts, and you can see them on the "Current Shorties" page. All of this data is persisted if you refresh the page.</p>
 </div>
 <div class="paragraph">
-<p>If you click on the link icon though, you will get an error. This is because it&#8217;s trying to contact a redirector service that hasn&#8217;t been deployed yet. This will be added in the next section.</p>
+<p>When clicking on the link icon, though, you get an error. This error is because the front-end is trying to contact a redirector service that hasn&#8217;t been deployed yet. This service will be added in the next section.</p>
 </div>
 </div>
 </div>

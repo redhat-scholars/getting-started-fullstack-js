@@ -221,7 +221,7 @@
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-In this section, you will see how to build a container for the front-end, if you want to skip this part and jump directly to the deployment part, you can also use a pre-existing image by jumping <a href="#deploy">here</a>.
+In this section, you will see how to build a container for the front-end. If you want to skip this part and jump directly to the deployment part, you can also use a pre-existing image by jumping <a href="#deploy">here</a>.
 </td>
 </tr>
 </table>
@@ -232,19 +232,19 @@ In this section, you will see how to build a container for the front-end, if you
 <h2 id="build"><a class="anchor" href="#build"></a>Build a Container</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>In order to deploy this applicatio, you can&#8217;t just use the same container that is used in development. That container is for a development environment and includes things such as a hot-reload server.</p>
+<p>To deploy this application, you can&#8217;t just use the same container that you used in development. That container is for a development environment and includes things such as a hot-reload server.</p>
 </div>
 <div class="paragraph">
-<p>For your production environment, you will want to package up your React application and deploy in on an Nginx server. Ideally, it will be able to use environement variables to configure it and will be running as a non-root user for maximum security.</p>
+<p>For your production environment, you will package up your React application and deploy it on an Nginx server. Ideally, it will use environment variables to configure it and will run as a non-root user for maximum security.</p>
 </div>
 <div class="paragraph">
-<p>To find out more about how to build such containers, you can take a look at <a href="https://github.com/joellord/frontend-containers">this blog post</a>.</p>
+<p>To find out more about building such containers, you can take a look at <a href="https://github.com/joellord/frontend-containers">this blog post</a>.</p>
 </div>
 <div class="paragraph">
 <p>For this workshop, you will use the templates provided in that post.</p>
 </div>
 <div class="paragraph">
-<p>First, start by copying the Dockerfile, nginx.conf and start-nginx.sh files from the aforementioned repository.</p>
+<p>First, start by copying the Dockerfile, nginx.conf and start-nginx.sh files from the repository mentioned above.</p>
 </div>
 <div class="listingblock container-input">
 <div class="content">
@@ -255,7 +255,7 @@ curl https://raw.githubusercontent.com/joellord/frontend-containers/main/react-p
 </div>
 </div>
 <div class="paragraph">
-<p>In order to avoid copying all the node_modules folder in your container, you can also create a <code>.dockerignore</code> file.</p>
+<p>To avoid copying all the node_modules folder in your container, you can also create a <code>.dockerignore</code> file.</p>
 </div>
 <div class="listingblock container-input">
 <div class="content">
@@ -277,7 +277,7 @@ curl https://raw.githubusercontent.com/joellord/frontend-containers/main/react-p
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If you are using podman instead of docker, you will need to use the <code>--format=docker</code> parameter to push your image to <a href="https://hub.docker.com">Docker Hub</a>.
+If you are using podman instead of docker, you need to use the <code>--format=docker</code> parameter to push your image to <a href="https://hub.docker.com">Docker Hub</a>.
 </td>
 </tr>
 </table>
@@ -291,7 +291,7 @@ If you are using podman instead of docker, you will need to use the <code>--form
 <p>Now that you have an image ready to be deployed, you can use the <code>docker push</code> command to store this image into a registry. Feel free to use any registry for this step.</p>
 </div>
 <div class="paragraph">
-<p>If you don&#8217;t have access to an image registry, you can create a free account on <a href="http://quay.io">Quay.io</a> or skip to <a href="#newapp">the deployment step</a> and use the image that is publicly available.</p>
+<p>If you don&#8217;t have access to an image registry, you can create a free account on <a href="http://quay.io">Quay.io</a> or skip to <a href="#newapp">the deployment step</a> and use the publicly available image.</p>
 </div>
 <div class="paragraph">
 <p>Use the CLI tool to push this image to a registry. Make sure that you replace `%REGISTRY_USERNAME% with your actual username</p>
@@ -318,7 +318,7 @@ If you are using podman instead of docker, you will need to use the <code>--form
 </div>
 </div>
 <div class="paragraph">
-<p>If you didn&#8217;t push your own custom image to a public registry, you can also use this image that has the latest version of the URL shortner front-end.</p>
+<p>If you didn&#8217;t push your custom image to a public registry, you could also use this image with the latest version of the URL shortener front-end.</p>
 </div>
 <div class="listingblock container-input">
 <div class="content">
@@ -349,7 +349,7 @@ If you run into an error message about hitting a rate limit, take a look at <a h
 <p>The front-end has been deployed to your cluster, but there still isn&#8217;t a way to access it from the outside of the cluster.</p>
 </div>
 <div class="paragraph">
-<p>To do so, you will need to expose the service that was just create with a <code>Route</code>. This can be done with a single command.</p>
+<p>To do so, you need to expose the service created with a <code>Route</code>. This can be done with a single command.</p>
 </div>
 <div class="listingblock container-input">
 <div class="content">
@@ -357,7 +357,7 @@ If you run into an error message about hitting a rate limit, take a look at <a h
 </div>
 </div>
 <div class="paragraph">
-<p>You application is now fully deployed to OpenShift, and you should be able to see it in the Topology view of your application, as shown below.</p>
+<p>Your application is now fully deployed to OpenShift, and you should be able to see it in the Topology view of your application, as shown below.</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="_images/topology-view.png" alt="Topology view"></span></p>
@@ -371,13 +371,13 @@ If you run into an error message about hitting a rate limit, take a look at <a h
 <p>If you click on the "Open URL" button next to your application in the topology view, it should open up your front-end application.</p>
 </div>
 <div class="paragraph">
-<p>From here, you can view the list of redirection URLs (currently empty). You can also see the form to add new URLs (currently non-working). Finally, there is a third link in the navigation bar that leads to an "About" page. In there, you will see the status of the Node.js API, the Mongo database and the redirector service.</p>
+<p>From here, you can view the list of redirection URLs (currently empty). You can also see the form to add new URLs (currently non-working). Finally, a third link in the navigation bar leads to an "About" page. In there, you can see the status of the Node.js API, the Mongo database and the redirector service.</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="_images/shortener-about.png" alt="About dashboard from the front-end"></span></p>
 </div>
 <div class="paragraph">
-<p>Right now, all indicators are red because the front-end doesn&#8217;t have a back-end to talk to. This will be adressed in the next section.</p>
+<p>Right now, all indicators are red because the front-end doesn&#8217;t have a back-end to talk to. This will be addressed in the next section.</p>
 </div>
 </div>
 </div>

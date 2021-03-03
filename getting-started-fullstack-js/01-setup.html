@@ -255,10 +255,10 @@ Please have them installed and configured before you get started with any of the
 <h2 id="devsandbox"><a class="anchor" href="#devsandbox"></a>Create a Developer Sandbox Account</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The first step in order to deploy your application is to have somewhere to deploy it to. You could use any OpenShift cluster for this demo, but if you don&#8217;t have access to one, you can use the <a href="https://developers.redhat.com/developer-sandbox">Developer Sandbox</a> to have access to a free OpenShift cluster for 14 days.</p>
+<p>The first step to deploy your application is to find a cluster to host it. You could use any OpenShift cluster for this demo, but if you don&#8217;t have access to one, you can use the <a href="https://developers.redhat.com/developer-sandbox">Developer Sandbox</a> to have access to a free OpenShift cluster for 14 days.</p>
 </div>
 <div class="paragraph">
-<p>To create your account, go to <a href="https://developers.redhat.com/developer-sandbox" class="bare">https://developers.redhat.com/developer-sandbox</a>. From there, click on the red button that says "Launch your Developer Sandbox for Red Hat OpenShift" as shown in the following image.</p>
+<p>To create your account, go to <a href="https://developers.redhat.com/developer-sandbox" class="bare">https://developers.redhat.com/developer-sandbox</a>. From there, click on the red button that says <em>Launch your Developer Sandbox for Red Hat OpenShift</em> as shown in the following image.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -266,7 +266,7 @@ Please have them installed and configured before you get started with any of the
 </div>
 </div>
 <div class="paragraph">
-<p>Use your existing Red Hat account or create a new one, then follow the instructions on the screen. You should then be redirected to the Developer Sandbox page again, but this time, you should see a button labeled "Start using your sandbox". Clicking on it will open up the OpenShift login screen where you will be able to login using the DevSandbox button, as seen below.</p>
+<p>Use your existing Red Hat account or create a new one, then follow the instructions on the screen. You should then be redirected to the Developer Sandbox page again, but this time, you should see a button labelled <em>Start using your sandbox</em>. Clicking on it opens up the OpenShift login screen where you can log in using the DevSandbox button, as seen below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -274,7 +274,7 @@ Please have them installed and configured before you get started with any of the
 </div>
 </div>
 <div class="paragraph">
-<p>This will open up your new OpenShift cluster. Feel free to take the tour or skip it for now and continue with this workshop.</p>
+<p>Clicking this button opens up your new OpenShift cluster console. Feel free to take the tour or skip it for now and continue with this workshop.</p>
 </div>
 </div>
 </div>
@@ -282,16 +282,16 @@ Please have them installed and configured before you get started with any of the
 <h2 id="oc"><a class="anchor" href="#oc"></a>Configure <code>oc</code></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>In order to interact with your OpenShift cluster, you will need the <code>oc</code> CLI tool. Thankfully, the OpenShift team made it easy for you to install it. In order to get the CLI tool for your operating system, click on the question mark icon at the top right of the OpenShift UI. From this dropdown, select "Command Line Tools". This will open up a page with the links required to install the 'oc' tool.</p>
+<p>To interact with your OpenShift cluster, you need the <code>oc</code> CLI tool. Thankfully, the OpenShift team made it easy for you to install it. To get the CLI tool for your operating system, click on the question mark icon at the top right of the OpenShift UI. From this dropdown, select <em>Command Line Tools</em>. This option opens up a page with the links required to install the <code>oc</code> tool.</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="_images/oc-install.png" alt="Installation instructions for oc"></span></p>
 </div>
 <div class="paragraph">
-<p>Once the tool is installed, click on the link for "Copy Login Command" from the same "Command Line Tools" page. This will open up a new window with the authentication screen. Select DevSandbox, then click on the "Display Tokens" link on the next page.</p>
+<p>Once the tool is installed, click on the link for <em>Copy Login Command</em> from the same <em>Command Line Tools</em> page. A new window will open up with the authentication screen. Select DevSandbox, then click on the <em>Display Tokens</em> link on the next page.</p>
 </div>
 <div class="paragraph">
-<p>On this new page, you will find a command that starts with <code>oc login</code>. Copy this whole line with the --token and --server parameters and paste it in your terminal.</p>
+<p>On this new page, you can find a command that starts with <code>oc login</code>. Copy this whole line with the --token and --server parameters and paste it into your terminal.</p>
 </div>
 <div class="listingblock console-input">
 <div class="content">
@@ -299,7 +299,7 @@ Please have them installed and configured before you get started with any of the
 </div>
 </div>
 <div class="paragraph">
-<p>You should get a message back confirming that you are logged in the developer sandbox.</p>
+<p>You should get a message back confirming that you successfully logged in to the developer sandbox.</p>
 </div>
 <div class="listingblock console-output">
 <div class="content">
@@ -323,10 +323,10 @@ Using project "%USERNAME%-code".</code></pre>
 <p>The application that you will deploy to this OpenShift cluster is a URL shortener and redirection service. It has a React front-end to manage your links and connects to a Node.js API. That express server then connects to a Mongo database to store and retrieve the URLs.</p>
 </div>
 <div class="paragraph">
-<p>The is also another application called the "redirector" micro-service that will do a database lookup and redirect the traffic to the matching URL. This one is built in PHP.</p>
+<p>The is also another application called the "redirector" micro-service that performs a database lookup and redirects the traffic to the matching URL. This service is built in PHP.</p>
 </div>
 <div class="paragraph">
-<p>You will need a copy of the source code in order to build your container images. To do so, you can use <code>git clone</code>.</p>
+<p>You need a copy of the source code to build your container images. To do so, you can use <code>git clone</code>.</p>
 </div>
 <div class="listingblock console-input">
 <div class="content">
@@ -338,11 +338,11 @@ Using project "%USERNAME%-code".</code></pre>
 </div>
 <div class="listingblock console-input">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">podman-compose up</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">docker-compose up</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>This will start the application in development mode. To view the application, you can open up a browser and point it to <a href="http://localhost:3000" class="bare">http://localhost:3000</a>.</p>
+<p>This command starts the application in development mode. To view the application, you can open up a browser and point it to <a href="http://localhost:3000" class="bare">http://localhost:3000</a>.</p>
 </div>
 </div>
 </div>

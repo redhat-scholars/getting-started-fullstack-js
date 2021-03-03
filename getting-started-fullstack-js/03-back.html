@@ -218,7 +218,7 @@
 <p>In the previous section, you created a Dockerfile, built a container and then pushed it to a shared registry so it could be used by OpenShift.</p>
 </div>
 <div class="paragraph">
-<p>When deploying applications to OpenShift, you can use some of the built-in tooling to make it much easier to deploy an application. In this section, you will deploy a Node.js back-end using s2i.</p>
+<p>When deploying applications to OpenShift, you can use some of the built-in toolings to make it much easier to deploy an application. In this section, you will deploy a Node.js back-end using s2i.</p>
 </div>
 </div>
 </div>
@@ -229,7 +229,7 @@
 <p>Source-to-image (<a href="https://github.com/openshift/source-to-image">s2i</a>) is a toolkit to build containers directly from the source code.</p>
 </div>
 <div class="paragraph">
-<p>To build the Node.js back-end from the Github source code, you can use the <code>oc new-app</code> command you&#8217;ve used previously. This time, you will specify a base image from which to build the container (centos7/nodejs-14-centos) and indicate the Github repository in which the source code is located. The --context-dir parameter is there to specify that the source code is located in the /back folder.</p>
+<p>To build the Node.js back-end from the Github source code, you can use the <code>oc new-app</code> command you&#8217;ve used previously. This time, you must specify a base image from which to build the container (centos7/nodejs-14-centos) and indicate the Github repository in which the source code is located. The --context-dir parameter is there to specify that the source code is located in the /back folder.</p>
 </div>
 <div class="listingblock console-input">
 <div class="content">
@@ -237,7 +237,7 @@
 </div>
 </div>
 <div class="paragraph">
-<p>You should get a message back indicating that a Build has been started.</p>
+<p>You should get a message back indicating that a Build has started.</p>
 </div>
 <div class="listingblock console-output">
 <div class="content">
@@ -268,13 +268,13 @@
 </div>
 </div>
 <div class="paragraph">
-<p>If you head to the topology view, you will see that the application is there with a white ring. This is because the application is currently being built. The source code is being cloned and the image is built directly on the OpenShift cluster.</p>
+<p>If you head to the topology view, you can see that the application is there with a white ring. This ring indicates that the application is currently being built. The source code is cloned, and the image is built directly on the OpenShift cluster.</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="_images/building.png" alt="Application building"></span></p>
 </div>
 <div class="paragraph">
-<p>In a few minutes, you should see the ring turn blue, indicating that the image has been deployed.</p>
+<p>In a few minutes, you should see the ring turn blue, indicating that the image was successfully deployed.</p>
 </div>
 </div>
 </div>
@@ -285,13 +285,13 @@
 <p>The Node.js application was running on port 3001 in the development environment, which was set as an environment variable. In the production server, you might want to change some of those environment variables. In this case, you will change the port on which the application is running to 8080.</p>
 </div>
 <div class="paragraph">
-<p>If you click on the urlshortener circle, this will open up a side panel. In this panel, find the Actions menu in the top right and select "Edit Deployment".</p>
+<p>Click on the urlshortener circle, and a side panel will open. In this panel, find the Actions menu in the top right and select <em>Edit Deployment</em>.</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="_images/edit-deployment.png" alt="Edit Deployment"></span></p>
 </div>
 <div class="paragraph">
-<p>This will open up a YAML editor where you can see the description of the urlshortener deployment.</p>
+<p>A YAML editor is then displayed where you can see the description of the urlshortener deployment.</p>
 </div>
 <div class="paragraph">
 <p>In the navigation bar, select Environment. This will open up the Environment variables editor. Add a single value with the name PORT and the value 8080.</p>
@@ -309,7 +309,7 @@
 <p><span class="image"><img src="_images/double-ring.png" alt="Double ring around urlshortener"></span></p>
 </div>
 <div class="paragraph">
-<p>This is because OpenShift is currently deploying a new version of the application with the new environment variables. Once it&#8217;s up and running, it will take the old one down. This ensures that there is zero down-time when you update your applications.</p>
+<p>This is because OpenShift is currently deploying a new version of the application with the new environment variables. Once it&#8217;s up and running, it takes the old one down. This process ensures that there is zero downtime when you update your applications.</p>
 </div>
 </div>
 </div>
@@ -317,7 +317,7 @@
 <h2 id="expose"><a class="anchor" href="#expose"></a>Expose the application</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Now that the application has been deployed, you can expose it using the same command as you used for the front-end.</p>
+<p>Now that the application was deployed, you can expose it using the same command as you used for the front-end.</p>
 </div>
 <div class="listingblock console-input">
 <div class="content">
@@ -325,7 +325,7 @@
 </div>
 </div>
 <div class="paragraph">
-<p>No need to specify the port in this case because s2i assumed that the application would be running on port 8080.</p>
+<p>There is no need to specify the port in this case because s2i assumed that the application would be running on port 8080.</p>
 </div>
 <div class="paragraph">
 <p>If you click on the Open URL link, you should see a response back from the server.</p>
@@ -336,7 +336,7 @@
 </div>
 </div>
 <div class="paragraph">
-<p>You can also try the /health route which should return the server and database status.</p>
+<p>You can also try the /health route, which should return the server and database status.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -352,22 +352,22 @@
 <h2 id="health"><a class="anchor" href="#health"></a>Add a health check</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>OpenShift can periodically check your pod to see if it is still running. This is called a health check. In the side panel when you clicked on the urlshortener deployment, you might have noticed a message recommending to add one. Go ahead and click on "Add Health Checks".</p>
+<p>OpenShift can periodically check your pod to see if it is still running. This is called a health check. In the side panel when you clicked on the urlshortener deployment, you might have noticed a message recommending to add one. Go ahead and click on <em>Add Health Checks</em>.</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="_images/add-health-check.png" alt="Add Health Checks"></span></p>
 </div>
 <div class="paragraph">
-<p>From this next screen, you will add a Liveness Probe which will monitor your application by doing periodic calls to the specified route. As long as it returns a 200  HTTP code, OpenShift will assume that the application is still running.</p>
+<p>From this next screen, you can add a Liveness Probe that monitors your application by doing periodic calls to the specified route. As long as it returns a 200  HTTP code, OpenShift assumes that the application is still running.</p>
 </div>
 <div class="paragraph">
-<p>To add the health check, click on "Add Liveness Probe". Change the Path to "/health" and keep all the other default values.</p>
+<p>To add the health check, click on <em>Add Liveness Probe</em>. Change the Path to <em>/health</em> and keep all the other default values.</p>
 </div>
 <div class="paragraph">
-<p>Click on the checkmark at the bottom of the dashed area and then click on the blue "Add" button to save this health check.</p>
+<p>Click on the checkmark at the bottom of the dashed area, and then click on the blue "Add" button to save this health check.</p>
 </div>
 <div class="paragraph">
-<p>If you want to validate that this is working, you can use the "Resources" tab from the deployment side panel and click on "View logs" next to the pod name. This will show you the pod logs and you should see the request to /health every 10 seconds.</p>
+<p>If you want to validate that this is working, you can use the <em>Resources</em> tab from the deployment side panel and click on <em>View logs</em> next to the pod name. This screen shows you the pod logs, and you should see the request to /health every 10 seconds.</p>
 </div>
 </div>
 </div>
